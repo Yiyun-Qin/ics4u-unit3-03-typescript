@@ -36,11 +36,6 @@
 
         "@typescript-eslint"
 
-    ],
+    ]
 
-    "compilerOptions": {
-      "target": "es2016",
-      "lib": ["es6", "es2017"],
-      ...
-    }
 }
