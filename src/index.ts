@@ -79,8 +79,8 @@ numberArray.sort(function (a, b) {
 
 console.log('\nSorted list of numbers:\n')
 for (let counter2: number = 0; counter2 < numberArray.length; counter2++) {
-  const padded: string = numberArray[counter2].padStart(3, ' ')
-  console.log(padded + ', ')
+  const padded: string = ' ' + numberArray[counter2]
+  process.stdout.write(`${padded}, `)
 }
 console.log('\n\n')
 
