@@ -41,7 +41,8 @@ function binarySearch (
   if (userArray[lowIndex] > userArray[highIndex]) {
     return -1
   } else {
-    const middle: number = (lowIndex + highIndex) / 2
+    const middleDouble: number = (lowIndex + highIndex) / 2
+    const middle: number = Math.round(middleDouble)
     if (userArray[middle] < userNumber) {
       return binarySearch(userArray, userNumber, middle + 1, highIndex)
     } else if (userArray[middle] > userNumber) {
