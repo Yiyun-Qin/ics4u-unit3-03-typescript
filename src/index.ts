@@ -38,19 +38,19 @@ function binarySearch (
   highIndex: number
 ): number {
   // solve this function!
-  if (userArray[lowIndex] > userArray[highIndex]) {
-    return -1
-  } else {
-    const middleDouble: number = (lowIndex + highIndex) / 2
-    const middle: number = Math.round(middleDouble)
-    if (userArray[middle] < userNumber) {
-      return binarySearch(userArray, userNumber, middle + 1, highIndex)
-    } else if (userArray[middle] > userNumber) {
-      return binarySearch(userArray, userNumber, lowIndex, middle - 1)
+    if (userArray[lowIndex] > userArray[highIndex]) {
+        return -1
     } else {
-      return middle
+        const middleDouble: number = (lowIndex + highIndex) / 2
+        const middle: number = Math.round(middleDouble)
+        if (userArray[middle] < userNumber) {
+            return binarySearch(userArray, userNumber, middle + 1, highIndex)
+        } else if (userArray[middle] > userNumber) {
+            return binarySearch(userArray, userNumber, lowIndex, middle - 1)
+        } else {
+            return middle
+        }
     }
-  }
 }
 
 /**
@@ -69,20 +69,20 @@ const randomNumberArray: number[] = []
 
 // Adding numbers to the array
 for (let counter: number = 0; counter < ARRAY_SIZE; counter++) {
-  randomNumberArray[counter] = Math.floor(Math.random() * MAX) + 1
+    randomNumberArray[counter] = Math.floor(Math.random() * MAX) + 1
 }
 
 // Sorting the array
 const numberArray: number[] = randomNumberArray
 numberArray.sort(function (a, b) {
-  return a - b
+    return a - b
 })
 
 console.log('\nSorted list of numbers:\n')
 for (let counter2: number = 0; counter2 < numberArray.length; counter2++) {
-  const numberString = numberArray[counter2].toString()
-  const padded: string = ' ' + numberString
-  process.stdout.write(`${padded}, `)
+    const numberString = numberArray[counter2].toString()
+    const padded: string = ' ' + numberString
+    process.stdout.write(`${padded}, `)
 }
 console.log('\n\n')
 
@@ -94,22 +94,22 @@ console.log('')
 
 const searchNumber = parseInt(searchString)
 if (isNaN(searchNumber)) {
-  console.log('ERROR: Invalid Input')
-} else {
-  // Ensuring the user inputs an appropriate integer
-  if (searchNumber > MAX || searchNumber < MIN) {
     console.log('ERROR: Invalid Input')
-  } else {
-    // Using binary search to find the user's chosen number in the array
-    const searchResult: number = binarySearch(
-      numberArray,
-      searchNumber,
-      0,
-      numberArray.length - 1
-    )
+} else {
+    // Ensuring the user inputs an appropriate integer
+    if (searchNumber > MAX || searchNumber < MIN) {
+        console.log('ERROR: Invalid Input')
+    } else {
+        // Using binary search to find the user's chosen number in the array
+        const searchResult: number = binarySearch(
+          numberArray,
+          searchNumber,
+          0,
+          numberArray.length - 1
+        )
 
     // Outputing the results of the search
-    console.log()
-    console.log(`Your number is in index: ${searchResult}`)
-  }
+        console.log()
+        console.log(`Your number is in index: ${searchResult}`)
+    }
 }
